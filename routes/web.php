@@ -33,3 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('cs','App\Http\Controllers\CsController@index')->name('cs');
     });
 });
+Route::resource('users', 'App\Http\Controllers\crudController');
+Route::get('/users/{id}/show', 'App\Http\Controllers\crudController@show');
+Route::get('/users/{id}/edit', 'App\Http\Controllers\crudController@edit');
+Route::DELETE('/users/{id}', 'App\Http\Controllers\crudController@destroy');
