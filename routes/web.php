@@ -39,10 +39,10 @@ Route::get('/users/{id}/show', 'App\Http\Controllers\crudController@show');
 Route::get('/users/{id}/edit', 'App\Http\Controllers\crudController@edit');
 Route::DELETE('/users/{id}', 'App\Http\Controllers\crudController@destroy');
 
-// Route::resource('ruangan', 'App\Http\Controllers\RuanganController');
-// Route::get('/ruangan/{id}/show', 'App\Http\Controllers\RuanganController@show');
-// Route::get('/ruangan/{id}/edit', 'App\Http\Controllers\RuanganController@edit');
-// Route::DELETE('/ruangan/{id}', 'App\Http\Controllers\RuanganController@destroy');
+Route::resource('ruangan', 'App\Http\Controllers\RuanganController');
+Route::get('/ruangan/{idruangan}/show', 'App\Http\Controllers\RuanganController@show');
+Route::get('/ruangan/{idruangan}/edit', 'App\Http\Controllers\RuanganController@edit');
+Route::DELETE('/ruangan/{idruangan}', 'App\Http\Controllers\RuanganController@destroy');
 
 Route::get('/editprofil/{id}', 'App\Http\Controllers\ManajerController@editprofil');
 Route::patch('/updateprofil/{id}', 'App\Http\Controllers\ManajerController@updateprofil');
