@@ -48,6 +48,13 @@
                 <a class="navbar-brand mr-auto logo" href="/manajer" style>KoKeRu</a>
             </div>
             <!-- Navbar-->
+            <div class="col-1">
+                <ul class="navbar-nav navbar-dark ml-auto ml-md-0">
+                    <a href="/editprofil/{{ Auth::user()->id }}" style="color:white">
+                        <span>Edit Profil</span>
+                    </a>
+                </ul>
+            </div>
             <ul class="navbar-nav navbar-dark ml-auto ml-md-0">
                 <a href="{{url('logout')}}" style="color:white">
                     <i class="fas fa-sign-out-alt"></i>
@@ -77,10 +84,6 @@
                                 <a class="nav-link" href="/users">
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
-                                </a>
-                                <a class="nav-link" href="/editprofil/{{ Auth::user()->id }}">
-                                    <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
-                                    Edit Profil
                                 </a>
                             <div class="sb-sidenav-menu-heading">Reset Status Ruangan</div>
                             <div class="container row">
