@@ -45,9 +45,16 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark shadow" style="background-color: #48b599">
             <div class="navbar-brand mr-auto logo">
-                <a class="navbar-brand mr-auto logo" href="#" style>KoKeRu</a>
+                <a class="navbar-brand mr-auto logo" href="/manajer" style>KoKeRu</a>
             </div>
             <!-- Navbar-->
+            <div class="col-1">
+                <ul class="navbar-nav navbar-dark ml-auto ml-md-0">
+                    <a href="/editprofil/{{ Auth::user()->id }}" style="color:white">
+                        <span>Edit Profil</span>
+                    </a>
+                </ul>
+            </div>
             <ul class="navbar-nav navbar-dark ml-auto ml-md-0">
                 <a href="{{url('logout')}}" style="color:white">
                     <i class="fas fa-sign-out-alt"></i>
@@ -61,7 +68,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Inti</div>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/manajer">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
@@ -70,11 +77,11 @@
                                     Laporan
                                 </a>
                             <div class="sb-sidenav-menu-heading">Pengelolaan</div>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/ruangan">
                                     <div class="sb-nav-link-icon"><i class="fas fa-cube fa-fw"></i></div>
                                     Ruangan
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/users">
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
                                 </a>
