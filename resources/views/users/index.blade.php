@@ -112,7 +112,8 @@
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Username</th>
-                <th scope="col">Name</th>
+                <th scope="col">Nama Karyawan</th>
+                <th scope="col">Role</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -122,6 +123,7 @@
                         <td>{{$key + 1}}</th>
                         <td>{{$value->username}}</td>
                         <td>{{$value->name}}</td>
+                        <td>{{$value->level}}</td>
                         <td>
                             <a href="/users/{{$value->id}}" class="btn btn-info">Show</a>
                             <a href="/users/{{$value->id}}/edit" class="btn btn-primary">Edit</a>
@@ -151,4 +153,3 @@
 
     </body>
 </html>
-
