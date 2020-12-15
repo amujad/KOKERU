@@ -112,6 +112,7 @@
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama Ruangan</th>
+                <th scope="col">Penanggung Jawab</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -120,6 +121,7 @@
                     <tr>
                         <td>{{$key + 1}}</th>
                         <td>{{$value->nama}}</td>
+                        <td>{{$value->cs_id}}</td>
                         <td>
                             <a href="/ruangan/{{$value->idruangan}}" class="btn btn-info">Show</a>
                             <a href="/ruangan/{{$value->idruangan}}/edit" class="btn btn-primary">Edit</a>
