@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ruangan extends Model
 {
-    use HasFactory;
+    use HasFactory;   
+    
     protected $table = 'ruangan';
     protected $primaryKey = 'idruangan';
-    protected $fillable = ['nama'];
+    protected $fillable = ['nama','cs_id'];
+    
+    // SELECT Username
+    // FROM users
+    // INNER JOIN ruangan
+    // ON users.id=ruangan.cs_id;
 }
