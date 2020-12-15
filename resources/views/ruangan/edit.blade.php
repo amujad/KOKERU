@@ -120,8 +120,17 @@
             </div>
             <div class="form-group">
                 <label for="cs_id">Penanggung Jawab</label>
-                <input type="text" class="form-control" cs_id="cs_id" id="cs_id" placeholder="Masukkan cs_id" value="{{ $ruangan->cs_id }}">
-                @error('body')
+                <input type="text" class="form-control" name="cs_id" id="cs_id" placeholder="Masukkan cs_id" value="{{ $ruangan->cs_id }}">
+                @error('cs_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="status">Status Ruangan</label>
+                <input type="status" class="form-control" name="status" id="status" placeholder="Masukkan Status Ruangan" value="{{ $ruangan->status }}">
+                @error('status')
                     <div class="alert alert-danger">
                         {{ $message }}
                     </div>
