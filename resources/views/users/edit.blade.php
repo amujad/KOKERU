@@ -111,7 +111,7 @@
             @method('PUT')
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan username">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan username" value="{{ $users->username }}">
                 @error('username')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -120,7 +120,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan name">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan name" value="{{ $users->name }}">
                 @error('body')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -129,7 +129,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan email" value="{{ $users->email }}">
                 @error('email')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -138,7 +138,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" value="{{ $users->password }}">
                 @error('password')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -147,7 +147,7 @@
             </div>
             <div class="form-group">
                 <label for="level">Level</label>
-                <input type="text" class="form-control" name="level" id="level" placeholder="Masukkan level">
+                <input type="text" class="form-control" name="level" id="level" placeholder="Masukkan level" value="{{ $users->level }}">
                 @error('level')
                     <div class="alert alert-danger">
                         {{ $message }}
