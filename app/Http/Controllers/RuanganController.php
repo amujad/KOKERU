@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ruangan;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
 
 class RuanganController extends Controller
 {
@@ -40,12 +41,14 @@ class RuanganController extends Controller
         $this->validate($request,[
             'nama'=> 'required',
             'cs_id'=> 'required'
+            // 'status'=> 'required'
     	]);
  
         Ruangan::create([
             'nama' => $request->nama,
-            'cs_id' => $request->cs_id
-    	]);
+            'cs_id' => $request->cs_id,
+            'status' => "Belum"
+        ]);
  
     	return redirect('/ruangan');
     }
@@ -85,13 +88,16 @@ class RuanganController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'cs_id' => 'required'
+            'cs_id' => 'required',
+            'status' => 'required'
         ]);
 
         $ruangan = Ruangan::find($id);
         $ruangan->nama = $request->nama;
         $ruangan->cs_id = $request->cs_id;
-        
+        $ruangan->status = $request->status;
+        // $ruangan->status = "Belum";
+
         $ruangan->update();
         return redirect('/ruangan');
     }
