@@ -108,6 +108,7 @@
                 <h5 class="card-title">Show Ruangan {{$ruangan->idruangan}}</h5>
                 <p class="card-text">{{$ruangan->nama}}</p>
                 <p>{{$ruangan->cs_id}}</p>
+                <p>{{$ruangan->status}}</p>
             </div>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
