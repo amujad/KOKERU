@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\crud;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class crudController extends Controller
 {
@@ -48,7 +50,7 @@ class crudController extends Controller
             'username' => $request->username,
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'level' => $request->level
     	]);
  
@@ -89,12 +91,11 @@ class crudController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'email' => 'required|unique:post',
+            'email' => ['required', Rule::unique('users')->ignore($id)],
             'username' => 'required',
             'name' => 'required',
             'password' => 'required',
             'level' => 'required',
-
         ]);
 
         $pegawai = crud::find($id);
