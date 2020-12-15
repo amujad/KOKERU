@@ -38,11 +38,13 @@ class RuanganController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nama'=> 'required'
+            'nama'=> 'required',
+            'cs_id'=> 'required'
     	]);
  
         Ruangan::create([
-            'nama' => $request->nama
+            'nama' => $request->nama,
+            'cs_id' => $request->cs_id
     	]);
  
     	return redirect('/ruangan');
@@ -82,11 +84,13 @@ class RuanganController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required'
+            'nama' => 'required',
+            'cs_id' => 'required'
         ]);
 
         $ruangan = Ruangan::find($id);
         $ruangan->nama = $request->nama;
+        $ruangan->cs_id = $request->cs_id;
         
         $ruangan->update();
         return redirect('/ruangan');
