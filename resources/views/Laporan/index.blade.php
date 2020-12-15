@@ -8,7 +8,8 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <title>Dashboard Manajer</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>Dashboard CS</title>
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -45,7 +46,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark shadow" style="background-color: #48b599">
             <div class="navbar-brand mr-auto logo">
-                <a class="navbar-brand mr-auto logo" href="/manajer" style>KoKeRu</a>
+                <a class="navbar-brand mr-auto logo" href="#" style>KoKeRu</a>
             </div>
             <!-- Navbar-->
             <ul class="navbar-nav navbar-dark ml-auto ml-md-0">
@@ -59,13 +60,13 @@
             <<div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-light bg-white shadow-sm" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
+                    <div class="nav">
                             <div class="sb-sidenav-menu-heading">Inti</div>
-                                <a class="nav-link" href="/manajer">
+                                <a class="nav-link" href="manajer">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/laporan">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Laporan
                                 </a>
@@ -100,50 +101,54 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-              
-<div>
-        <h2>Edit Profil - {{$manajer->name}}</h2>
-        <form action="/updateprofil/{{$manajer->id}}" method="POST">
-            @csrf
-            @method('PATCH')
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan username" value="{{ $manajer->username }}">
-                @error('username')
-                    <div class="alert alert-danger">
-                        {{ $message }}
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Laporan Status Kebersihan </h1>
+                            <div class="input-group flex-wrap flex-fill mb-3">
+                                <select class="form-select flex-fill"
+                                onChange="window.location.href='/laporan/' + this.options[this.selectedIndex].value">
+                                    <option value="{{$dateLaporan}}">Laporan {{$dateLaporan}}</option>
+                                    @foreach($listTanggal as $tanggal)
+                                        @if($tanggal->tanggal != $dateLaporan)
+                                            <option value="{{$tanggal->tanggal}}">Laporan {{$tanggal->tanggal}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                <a href="/laporan/{{$dateLaporan}}/cetak" class="btn btn-primary">Cetak PDF</a>
+                            </div> 
+                        <div class="container shadow-sm rounded " style="background:white">
+                            <div class="container p-3">
+                                <div class="h3 mx-auto mt-4" style="width:390px">Laporan Status Kebersihan</div>
+                                <div class="h5 mx-auto" style="width:120px">{{$dateLaporan}}</div>
+                                <table class="table table-bordered mt-3">
+                                <thead>
+                                    <th  scope="col">No</th>
+                                    <th  scope="col">Ruang</th>
+                                    <th  scope="col">Penanggug Jawab</th>
+                                    <th  scope="col">Status</th>
+                                </thead>
+                                <tbody>
+                                    @foreach($laporan as $data)
+                                    <tr >
+                                        <td scope="row">{{$loop->iteration}}</td>
+                                        <td>{{$data->ruang}}</td>
+                                        <td>{{$data->PenanggungJawab}}</td>
+                                        <td>{{$data->status}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                @enderror
+                </main>
             </div>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan name" value="{{ $manajer->name }}">
-                @error('body')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan email" value="{{ $manajer->email }}">
-                @error('email')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <button type="submit" class="btn btn-primary">Edit</button>
-        </form>
-    </div>
-
         </div>
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>     
     </body>
 </html>

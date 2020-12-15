@@ -8,7 +8,8 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
-        <title>Dashboard Manajer</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>Dashboard CS</title>
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -45,7 +46,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark shadow" style="background-color: #48b599">
             <div class="navbar-brand mr-auto logo">
-                <a class="navbar-brand mr-auto logo" href="/manajer" style>KoKeRu</a>
+                <a class="navbar-brand mr-auto logo" href="#" style>KoKeRu</a>
             </div>
             <!-- Navbar-->
             <ul class="navbar-nav navbar-dark ml-auto ml-md-0">
@@ -61,36 +62,14 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Inti</div>
-                                <a class="nav-link" href="/manajer">
+                                <a class="nav-link" href="cs">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/Tugas">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
-                                    Laporan
+                                    Tugas
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Pengelolaan</div>
-                                <a class="nav-link" href="/ruangan">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-cube fa-fw"></i></div>
-                                    Ruangan
-                                </a>
-                                <a class="nav-link" href="/users">
-                                    <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
-                                    Cleaning Service
-                                </a>
-                                <a class="nav-link" href="/editprofil/{{ Auth::user()->id }}">
-                                    <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
-                                    Edit Profil
-                                </a>
-                            <div class="sb-sidenav-menu-heading">Reset Status Ruangan</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
-                                    <div class="sb-nav-link-icon">
-                                        <i class="fas fa-retweet"></i>
-                                        <span>Reset</span>
-                                    </div>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -100,50 +79,28 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-              
-<div>
-        <h2>Edit Profil - {{$manajer->name}}</h2>
-        <form action="/updateprofil/{{$manajer->id}}" method="POST">
-            @csrf
-            @method('PATCH')
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan username" value="{{ $manajer->username }}">
-                @error('username')
-                    <div class="alert alert-danger">
-                        {{ $message }}
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Bukti Kebersihan {{$ruang->nama}}</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Penugasan Ruangan {{date('d F Y')}}</li>
+                        </ol>
+                        <div class="container shadow-sm rounded listRuang">
+                            <div class="pt-4 row row-cols-1 row-cols-md-3">
+                            @foreach(json_decode(($ruang->bukti1)) as $picture)
+                                <image src="{{url('storage/'.str_replace('public/','',$picture))}}" style="height:120px; width:200px"/>
+                            @endforeach
+                            </div>
+                        </div>
                     </div>
-                @enderror
+                </main>
             </div>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan name" value="{{ $manajer->name }}">
-                @error('body')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan email" value="{{ $manajer->email }}">
-                @error('email')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <button type="submit" class="btn btn-primary">Edit</button>
-        </form>
-    </div>
-
         </div>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             crossorigin="anonymous"></script>
         <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
-
+            crossorigin="anonymous"></script>     
     </body>
 </html>
