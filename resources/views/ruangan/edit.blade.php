@@ -111,14 +111,22 @@
             @method('PUT')
             <div class="form-group">
                 <label for="nama">Nama Ruangan</label>
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama Ruangan">
+                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama Ruangan" value="{{ $ruangan->nama }}">
                 @error('nama')
                     <div class="alert alert-danger">
                         {{ $message }}
                     </div>
                 @enderror
             </div>
-           
+            <div class="form-group">
+                <label for="cs_id">Penanggung Jawab</label>
+                <input type="text" class="form-control" cs_id="cs_id" id="cs_id" placeholder="Masukkan cs_id" value="{{ $ruangan->cs_id }}">
+                @error('body')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>
