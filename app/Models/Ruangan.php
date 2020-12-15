@@ -13,13 +13,7 @@ class Ruangan extends Model
     protected $primaryKey = 'idruangan';
     protected $fillable = ['nama','cs_id', 'status'];
 
-
-    // public function user()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
-
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -29,11 +23,5 @@ class Ruangan extends Model
     //     return $this->hasMany(User::class, 'cs_id', 'id');
     // }
 
-    // eloquent orm --- 
-    
-    // SELECT Username
-    // FROM users
-    // INNER JOIN ruangan
-    // ON users.id=ruangan.cs_id;
 }
 
