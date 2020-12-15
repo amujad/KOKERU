@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    
+    protected $table = "users";
+
     protected $fillable = [
         'username',
         'name',
@@ -44,13 +47,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function ruangan()
-    // {
-    //     return $this->hasMany(Ruangan::class, 'cs_id', 'idruangan');
-    //     // return $this->hasMany(Comment::class, 'foreign_key', 'local_key');
-    // }
-
-    public function Ruangan()
+    public function ruangan()
     {
         return $this->hasMany(Ruangan::class, 'cs_id', 'id');
     }
