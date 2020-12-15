@@ -117,7 +117,15 @@
                     </div>
                 @enderror
             </div>
-            
+            <div class="form-group">
+                <label for="cs_id">Penanggung Jawab</label>
+                <input type="cs_id" class="form-control" name="cs_id" id="cs_id" placeholder="Masukkan cs_id">
+                @error('cs_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Tambah</button>
         </form>
     </div>
