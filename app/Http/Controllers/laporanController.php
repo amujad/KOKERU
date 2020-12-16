@@ -69,7 +69,7 @@ class laporanController extends Controller
                     'ruang' => $ruang->nama,
                     'PenanggungJawab' => $ruang->name,
                     'status' => $ruang->status,
-                    'tanggal' => date(Y-m-d),
+                    'tanggal' => date('Y-m-d'),
                     'bukti' => $bukti
                 ]);
             }
