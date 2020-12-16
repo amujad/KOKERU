@@ -19,12 +19,12 @@ class RuanganSeeder extends Seeder
             [
                 'nama' => 'A101',
                 'cs_id' => 2,
-                'status' => 'Sudah'
+                'status' => 'Belum'
             ],
             [
                 'nama' => 'A102',
                 'cs_id' => 2,
-                'status' => 'Sudah'
+                'status' => 'Belum'
             ],
             [
                 'nama' => 'A103',
@@ -34,7 +34,7 @@ class RuanganSeeder extends Seeder
             [
                 'nama' => 'A201',
                 'cs_id' => 2,
-                'status' => 'Sudah'
+                'status' => 'Belum'
             ],
             [
                 'nama' => 'A202',
@@ -49,7 +49,7 @@ class RuanganSeeder extends Seeder
             [
                 'nama' => 'A204',
                 'cs_id' => 2,
-                'status' => 'Sudah'
+                'status' => 'Belum'
             ],
             [
                 'nama' => 'A301',
@@ -59,7 +59,19 @@ class RuanganSeeder extends Seeder
             [
                 'nama' => 'A302',
                 'cs_id' => 2,
-                'status' => 'Sudah'
+                'status' => 'Belum'
+            ],[
+                'nama' => 'A303',
+                'cs_id' => 2,
+                'status' => 'Belum'
+            ],[
+                'nama' => 'A304',
+                'cs_id' => 2,
+                'status' => 'Belum'
+            ],[
+                'nama' => 'A305',
+                'cs_id' => 2,
+                'status' => 'Belum'
             ],
         ];
         Schema::disableForeignKeyConstraints();
