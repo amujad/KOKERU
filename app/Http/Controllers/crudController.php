@@ -102,7 +102,7 @@ class crudController extends Controller
         $pegawai->email = $request->email;
         $pegawai->username = $request->username;
         $pegawai->name = $request->name;
-        $pegawai->password = $request->password;
+        $pegawai->password = Hash::make($request->password);
         $pegawai->level = $request->level;
         $pegawai->update();
         return redirect('/users');
