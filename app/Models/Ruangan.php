@@ -24,4 +24,3 @@ class Ruangan extends Model
     // }
 
 }
-
