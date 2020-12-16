@@ -65,7 +65,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/Tugas">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Tugas
                                 </a>
