@@ -72,7 +72,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/laporan">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Laporan
                                 </a>
@@ -85,15 +85,6 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Reset Status users</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
-                                    <div class="sb-nav-link-icon">
-                                        <i class="fas fa-retweet"></i>
-                                        <span>Reset</span>
-                                    </div>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -106,14 +97,15 @@
                 <main>
                     <div class="container-fluid">
                     <br>
-                    <a href="/users/create" class="btn btn-primary">Tambah</a>
+                    <a href="/users/create" class="btn btn-primary" style="margin-bottom:20px">Tambah</a>
         <table class="table">
             <thead class="thead-light">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Username</th>
                 <th scope="col">Nama Karyawan</th>
-                <th scope="col">Role</th>
+                <th scope="col">ID Karyawan</th>
+                <th scope="col">Jabatan</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -123,15 +115,20 @@
                         <td>{{$key + 1}}</th>
                         <td>{{$value->username}}</td>
                         <td>{{$value->name}}</td>
+                        <td>{{$value->id}}</td>
                         <td>{{$value->level}}</td>
                         <td>
-                            <a href="/users/{{$value->id}}" class="btn btn-info">Show</a>
-                            <a href="/users/{{$value->id}}/edit" class="btn btn-primary">Edit</a>
-                            <form action="/users/{{$value->id}}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" class="btn btn-danger my-1" value="Delete">
-                            </form>
+                            <div class="row">
+                                <a href="/users/{{$value->id}}" class="btn btn-info" style="margin-right:5px" >Show</a>
+                                <a href="/users/{{$value->id}}/edit" class="btn btn-primary" style="margin-right:5px">Edit</a>
+                                <form action="/users/{{$value->id}}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a style="padding-bottom:20px">
+                                    <input type="submit" class="btn btn-danger my-1" value="Delete">
+                                    </a>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @empty

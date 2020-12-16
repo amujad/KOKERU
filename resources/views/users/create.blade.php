@@ -72,7 +72,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/laporan">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Laporan
                                 </a>
@@ -85,15 +85,6 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Reset Status Ruangan</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
-                                    <div class="sb-nav-link-icon">
-                                        <i class="fas fa-retweet"></i>
-                                        <span>Reset</span>
-                                    </div>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -105,12 +96,12 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                    <h2>Tambah Data</h2>
+                    <h2>Tambah Data Karyawan</h2>
         <form action="/users" method="POST">
             @csrf
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan username">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan Username ">
                 @error('username')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -118,8 +109,8 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan name">
+                <label for="name">Nama</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan Nama ">
                 @error('body')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -128,7 +119,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan Email ">
                 @error('email')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -137,7 +128,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan Password">
                 @error('password')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -145,8 +136,8 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="level">Level</label>
-                <input type="text" class="form-control" name="level" id="level" placeholder="Masukkan level">
+                <label for="level">Jabatan</label>
+                <input type="text" class="form-control" name="level" id="level" placeholder="Masukkan Jabatan">
                 @error('level')
                     <div class="alert alert-danger">
                         {{ $message }}

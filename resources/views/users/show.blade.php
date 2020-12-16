@@ -72,7 +72,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/laporan">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Laporan
                                 </a>
@@ -85,15 +85,6 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Reset Status Ruangan</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
-                                    <div class="sb-nav-link-icon">
-                                        <i class="fas fa-retweet"></i>
-                                        <span>Reset</span>
-                                    </div>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -103,13 +94,16 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-            <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Show User {{$users->id}}</h5>
-                <p class="card-text">{{$users->username}}</p>
-                <p>{{$users->name}}</p>
-                <p>{{$users->email}}</p>
-                <p>{{$users->level}}</p>
+            <div class="card" style="width: 18rem" style="margin-top:20px;">
+            <div style="margin-top:20px;">
+                <div class="card-body">
+                    <h5 class="card-title">Data Karyawan</h5>
+                    <p class="card-text">Username : {{$users->username}}</p>
+                    <p>Nama Karyawan: {{$users->name}}</p>
+                    <p>ID Karyawan: {{$users->id}}</p>
+                    <p>Email : {{$users->email}}</p>
+                    <p>Jabatan : {{$users->level}}</p>
+                </div>
             </div>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"

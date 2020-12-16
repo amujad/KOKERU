@@ -72,7 +72,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/laporan">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Laporan
                                 </a>
@@ -85,15 +85,6 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Reset Status Ruangan</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
-                                    <div class="sb-nav-link-icon">
-                                        <i class="fas fa-retweet"></i>
-                                        <span>Reset</span>
-                                    </div>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -105,7 +96,7 @@
             <div id="layoutSidenav_content">
               
 <div>
-        <h2>Edit User {{$users->id}}</h2>
+        <h2>Edit Data Karyawan - {{$users->name}}</h2>
         <form action="/users/{{$users->id}}" method="POST">
             @csrf
             @method('PUT')
@@ -146,8 +137,8 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="level">Level</label>
-                <input type="text" class="form-control" name="level" id="level" placeholder="Masukkan level" value="{{ $users->level }}">
+                <label for="level">Jabatan</label>
+                <input type="text" class="form-control" name="level" id="level" placeholder="Masukkan Jabatan" value="{{ $users->level }}">
                 @error('level')
                     <div class="alert alert-danger">
                         {{ $message }}
