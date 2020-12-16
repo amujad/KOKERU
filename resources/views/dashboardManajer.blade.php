@@ -86,8 +86,8 @@
                                     Cleaning Service
                                 </a>
                             <div class="sb-sidenav-menu-heading">Reset Status Ruangan</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
+                             <div class="container row">
+                                <button type="button" class="btn btn-danger col" data-toggle="modal" data-target="#reset">
                                     <div class="sb-nav-link-icon">
                                         <i class="fas fa-retweet"></i>
                                         <span>Reset</span>
@@ -101,6 +101,26 @@
                         {{ Auth::user()->name }}
                     </div>
                 </nav>
+            </div>
+            <div id="layoutSidenav_content">
+            <div class="modal fade" id="reset" role="dialog" aria-label="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Reset Status</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah Anda yakin untuk mereset status ruangan?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="/reset "type="button" class="btn btn-danger">Reset</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="layoutSidenav_content">
                 <main>
