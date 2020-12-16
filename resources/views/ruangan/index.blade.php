@@ -72,7 +72,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fa-fw"></i></div>
                                     Dashboard
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/laporan">
                                     <div class="sb-nav-link-icon"><i class="fa fa-file-alt fa-fw" ></i></div>
                                     Laporan
                                 </a>
@@ -85,15 +85,6 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-broom fa-fw" ></i></div>
                                     Cleaning Service
                                 </a>
-                            <div class="sb-sidenav-menu-heading">Reset Status users</div>
-                            <div class="container row">
-                                <button type="button" class="btn btn-danger col" href="charts.html">
-                                    <div class="sb-nav-link-icon">
-                                        <i class="fas fa-retweet"></i>
-                                        <span>Reset</span>
-                                    </div>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -106,7 +97,7 @@
                 <main>
                     <div class="container-fluid">
                     <br>
-                    <a href="/ruangan/create" class="btn btn-primary">Tambah</a>
+                    <a href="/ruangan/create" class="btn btn-primary" style="margin-bottom:20px">Tambah</a>
         <table class="table">
             <thead class="thead-light">
               <tr>
@@ -125,13 +116,15 @@
                         <td>{{$value->cs_id}}</td>
                         <td>{{$value->status}}</td>
                         <td>
-                            <a href="/ruangan/{{$value->idruangan}}" class="btn btn-info">Show</a>
-                            <a href="/ruangan/{{$value->idruangan}}/edit" class="btn btn-primary">Edit</a>
-                            <form action="/ruangan/{{$value->idruangan}}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" class="btn btn-danger my-1" value="Delete">
-                            </form>
+                                <div class="row">
+                                <a href="/ruangan/{{$value->idruangan}}" class="btn btn-info" style="margin-right:5px">Show</a>
+                                <a href="/ruangan/{{$value->idruangan}}/edit" class="btn btn-primary" style="margin-right:5px">Edit</a>
+                                <form action="/ruangan/{{$value->idruangan}}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" class="btn btn-danger my-1" value="Delete">
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @empty
