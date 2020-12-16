@@ -122,7 +122,6 @@
                     </div>
                 </div>
             </div>
-            <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Dashboard Manajer</h1>
