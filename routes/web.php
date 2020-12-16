@@ -46,3 +46,14 @@ Route::DELETE('/ruangan/{idruangan}', 'App\Http\Controllers\RuanganController@de
 
 Route::get('/editprofil/{id}', 'App\Http\Controllers\ManajerController@editprofil');
 Route::patch('/updateprofil/{id}', 'App\Http\Controllers\ManajerController@updateprofil');
+
+Route::resource('Tugas', 'App\Http\Controllers\BuktiController');
+Route::get('/Tugas/{id}/Uploadbukti','App\Http\Controllers\BuktiController@update')->name('ruangan.update');
+Route::post('/Tugas/{id}','App\Http\Controllers\BuktiController@store')->name('ruangan.store');
+Route::get('/Tugas/{id}/viewBukti','App\Http\Controllers\BuktiController@viewBukti')->name('ruangan.viewBukti');
+
+Route::get('/laporan','App\Http\Controllers\laporanController@index');
+Route::get('/laporan/{tanggal}','App\Http\Controllers\laporanController@laporTgl');
+Route::get('/laporan/{tanggal}/cetak','App\Http\Controllers\laporanController@cetakPdf');
+
+Route::get('/reset','App\Http\Controllers\laporanController@resetRuang');
